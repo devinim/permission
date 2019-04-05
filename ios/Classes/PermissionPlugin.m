@@ -230,7 +230,8 @@ CLLocationManager *locationManager;
             }];
         } else if ([@"Location" isEqualToString:permissionName]){
             locationManager = [[CLLocationManager alloc] init];
-            [locationManager requestAlwaysAuthorization];
+            // [locationManager requestAlwaysAuthorization];
+			[locationManager requestWhenInUseAuthorization];	
         }
     } else if ([@"openSettings" isEqualToString:call.method]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
