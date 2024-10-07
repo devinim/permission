@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
                       value: c0,
                       onChanged: (v) {
                         setState(() {
-                          c0 = v;
+                          c0 = v ?? true;
                         });
                       },
                     ),
@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
                       value: c1,
                       onChanged: (v) {
                         setState(() {
-                          c1 = v;
+                          c1 = v ?? true;
                         });
                       },
                     ),
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
                       value: c2,
                       onChanged: (v) {
                         setState(() {
-                          c2 = v;
+                          c2 = v ?? true;
                         });
                       },
                     ),
@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
                       value: c3,
                       onChanged: (v) {
                         setState(() {
-                          c3 = v;
+                          c3 = v ?? true;
                         });
                       },
                     ),
@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
                       value: c4,
                       onChanged: (v) {
                         setState(() {
-                          c4 = v;
+                          c4 = v ?? true;
                         });
                       },
                     ),
@@ -88,7 +88,7 @@ class _MyAppState extends State<MyApp> {
                       value: c5,
                       onChanged: (v) {
                         setState(() {
-                          c5 = v;
+                          c5 = v  ?? true;
                         });
                       },
                     ),
@@ -104,7 +104,7 @@ class _MyAppState extends State<MyApp> {
                       value: c6,
                       onChanged: (v) {
                         setState(() {
-                          c6 = v;
+                          c6 = v  ?? true;
                         });
                       },
                     ),
@@ -113,7 +113,7 @@ class _MyAppState extends State<MyApp> {
                       value: c7,
                       onChanged: (v) {
                         setState(() {
-                          c7 = v;
+                          c7 = v  ?? true;
                         });
                       },
                     ),
@@ -122,7 +122,7 @@ class _MyAppState extends State<MyApp> {
                       value: c8,
                       onChanged: (v) {
                         setState(() {
-                          c8 = v;
+                          c8 = v  ?? true;
                         });
                       },
                     ),
@@ -182,21 +182,21 @@ class _MyAppState extends State<MyApp> {
               ),
               Offstage(
                 offstage: !Platform.isAndroid,
-                child: RaisedButton(onPressed: getPermissionsStatus, child: new Text("Get permission status")),
+                child: ElevatedButton(onPressed: getPermissionsStatus, child: new Text("Get permission status")),
               ),
               Offstage(
                 offstage: !Platform.isAndroid,
-                child: RaisedButton(onPressed: requestPermissions, child: new Text("Request permissions")),
+                child: ElevatedButton(onPressed: requestPermissions, child: new Text("Request permissions")),
               ),
               Offstage(
                 offstage: !Platform.isIOS,
-                child: RaisedButton(onPressed: getSinglePermissionStatus, child: new Text("Get single permission status")),
+                child: ElevatedButton(onPressed: getSinglePermissionStatus, child: new Text("Get single permission status")),
               ),
               Offstage(
                 offstage: !Platform.isIOS,
-                child: RaisedButton(onPressed: requestSinglePermission, child: new Text("Request single permission")),
+                child: ElevatedButton(onPressed: requestSinglePermission, child: new Text("Request single permission")),
               ),
-              RaisedButton(onPressed: Permission.openSettings, child: new Text("Open settings")),
+              ElevatedButton(onPressed: Permission.openSettings, child: new Text("Open settings")),
               Text(message),
             ],
           ),
@@ -261,9 +261,9 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void radioValueChange(int value) {
+  void radioValueChange(int? value) {
     setState(() {
-      radioValue = value;
+      radioValue = value ?? 0;
       switch (radioValue) {
         case 0:
           permissionName = PermissionName.Internet;
